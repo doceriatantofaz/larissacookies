@@ -1,0 +1,363 @@
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fff5f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+.header {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.logo {
+    max-width: 150px;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin-bottom: 1rem;
+}
+
+.header h1 {
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Cardápio */
+.cardapio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-cookie {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 15px rgba(255, 105, 140, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid #ff6b8b;
+}
+
+.card-cookie:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(255, 105, 140, 0.3);
+}
+
+.card-cookie h3 {
+    color: #d23669;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    border-bottom: 2px dashed #ffb6c1;
+    padding-bottom: 0.5rem;
+}
+
+.card-cookie p {
+    color: #555;
+    font-size: 0.95rem;
+}
+/* ====== ESTILO PARA AS IMAGENS DOS COOKIES ====== */
+.card-cookie img {
+    width: 100%;
+    height: 220px; /* Altura fixa para padronização */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #ff6b8b;
+    transition: transform 0.5s ease, filter 0.3s ease;
+    box-shadow: 0 4px 8px rgba(214, 48, 49, 0.1);
+}
+
+.card-cookie:hover img {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+}
+
+/* Efeito de zoom suave ao passar o mouse */
+.card-cookie {
+    overflow: hidden; /* Contém a imagem quando ela aumenta */
+}
+
+/* Estilo para o preço */
+.card-cookie p:last-of-type {
+    font-weight: bold;
+    color: #e84393;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    background: linear-gradient(to right, #fff5f7, #ffebee, #fff5f7);
+    padding: 0.5rem;
+    border-radius: 5px;
+    border-left: 3px solid #e84393;
+}
+
+/* Layout do card reorganizado */
+.card-cookie {
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* Removemos o padding geral */
+}
+
+.card-cookie > *:not(img) {
+    padding: 0 1.2rem 1.2rem; /* Padding apenas para conteúdo não-imagem */
+}
+
+/* Adicionando efeito de foco na imagem */
+.card-cookie img {
+    position: relative;
+}
+
+.card-cookie img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(232, 67, 147, 0.1), rgba(232, 67, 147, 0.05));
+    z-index: 1;
+}
+
+/* Efeito de brilho hover mais sofisticado */
+.card-cookie:hover img {
+    box-shadow: 0 8px 16px rgba(214, 48, 49, 0.2);
+}
+
+/* Responsividade para imagens */
+@media (max-width: 768px) {
+    .card-cookie img {
+        height: 180px;
+    }
+}
+/* Estilo para o botão de compra */
+.btn-comprar {
+    background: linear-gradient(to right, #25D366, #128C7E);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-comprar:hover {
+    background: linear-gradient(to right, #128C7E, #075E54);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-comprar::before {
+    content: "";
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3670/3670051.png');
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+/* Rodapé */
+.footer {
+    background: linear-gradient(135deg, #fad0c4 0%, #ff9a9e 100%);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+/* WhatsApp Flutuante */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 100;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-icon {
+    width: 40px;
+    height: 40px;
+}
+/* Estilo para o footer com ícone do Instagram */
+.footer {
+    background: linear-gradient(135deg, #fad0c4 0%, #ff9a9e 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.social-icons {
+    margin-top: 1rem;
+}
+
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.instagram-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.instagram-link img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    filter: brightness(0) invert(1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .instagram-link {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+    
+    .instagram-link img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Efeito de pulsação */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.whatsapp-float {
+    animation: pulse 2s infinite;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    .cardapio {
+        grid-template-columns: 1fr;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+}
+/* Botão Voltar ao Início - Lado Esquerdo */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    background-color: #ff6b8b;
+    color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(255, 107, 139, 0.4);
+    transition: all 0.4s ease;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    padding: 12px 20px;
+    transform: translateX(-100px);
+}
+
+.back-to-top span {
+    margin-left: 8px;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.back-to-top:hover {
+    background-color: #e84393;
+    padding: 12px 25px;
+    box-shadow: 0 6px 16px rgba(255, 107, 139, 0.6);
+}
+
+/* Animação de entrada */
+@keyframes slideIn {
+    from { transform: translateX(-100px); }
+    to { transform: translateX(0); }
+}
+
+.back-to-top.show {
+    animation: slideIn 0.5s ease forwards;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 20px;
+        left: 20px;
+        font-size: 16px;
+        padding: 10px 16px;
+    }
+    
+    .back-to-top:hover {
+        padding: 10px 20px;
+    }
+}
