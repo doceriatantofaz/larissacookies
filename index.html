@@ -8,6 +8,22 @@
 </head>
 
 <body>
+    <!-- Carrinho Flutuante -->
+<div class="carrinho-btn" onclick="abrirCarrinho()">
+    🛒 <span id="contador-carrinho">0</span>
+</div>
+
+<!-- Modal do Carrinho -->
+<div id="carrinho-modal" class="carrinho-modal">
+    <div class="carrinho-conteudo">
+        <h2>Meu Carrinho</h2>
+        <ul id="lista-carrinho"></ul>
+        <p id="total-carrinho">Total: R$ 0,00</p>
+        <button onclick="finalizarPedido()">Finalizar pedido via WhatsApp</button>
+        <button onclick="fecharCarrinho()" class="fechar">Fechar</button>
+    </div>
+</div>
+
     <!-- Ícone do WhatsApp Flutuante -->
     <a href="https://wa.me/message/4Q3AEC4LBPJRP1" class="whatsapp-float" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp" class="whatsapp-icon">
@@ -202,4 +218,64 @@ Cookie salgado com uma massa leve e saborosa, recheado com carne de panela e che
         window.open(urlWhatsApp, '_blank');
     }
 </script>
+    <script>
+    let carrinho = [];
+
+    function comprarCookie(nomeCookie, preco = 15.00) {
+        carrinho.push({ nome: nomeCookie, preco });
+        atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+        const contador = document.getElementById("contador-carrinho");
+        contador.textContent = carrinho.length;
+
+        const lista = document.getElementById("lista-carrinho");
+        lista.innerHTML = "";
+
+        let total = 0;
+
+        carrinho.forEach((item, index) => {
+            total += item.preco;
+            const li = document.createElement("li");
+            li.innerHTML = `${item.nome} - R$ ${item.preco.toFixed(2)} 
+                <button onclick="removerItem(${index})" style="margin-left:10px;">❌</button>`;
+            lista.appendChild(li);
+        });
+
+        document.getElementById("total-carrinho").textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
+
+    function removerItem(index) {
+        carrinho.splice(index, 1);
+        atualizarCarrinho();
+    }
+
+    function abrirCarrinho() {
+        document.getElementById("carrinho-modal").style.display = "flex";
+    }
+
+    function fecharCarrinho() {
+        document.getElementById("carrinho-modal").style.display = "none";
+    }
+
+    function finalizarPedido() {
+        if (carrinho.length === 0) {
+            alert("Seu carrinho está vazio!");
+            return;
+        }
+
+        let mensagem = "Olá, gostaria de fazer um pedido:\n";
+        carrinho.forEach(item => {
+            mensagem += `• ${item.nome} - R$ ${item.preco.toFixed(2)}\n`;
+        });
+
+        const total = carrinho.reduce((sum, item) => sum + item.preco, 0);
+        mensagem += `\nTotal: R$ ${total.toFixed(2)}\n*Atenção: verificar disponibilidade antes de confirmar!*`;
+
+        const url = `https://wa.me/5535999325305?text=${encodeURIComponent(mensagem)}`;
+        window.open(url, "_blank");
+    }
+</script>
+
 </html>
