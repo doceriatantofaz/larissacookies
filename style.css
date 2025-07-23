@@ -6,6 +6,83 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.carrinho-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff6b8b;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 200;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.carrinho-btn:hover {
+    background-color: #e84393;
+}
+
+.carrinho-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrinho-conteudo {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.carrinho-conteudo h2 {
+    margin-bottom: 1rem;
+    color: #e84393;
+}
+
+.carrinho-conteudo ul {
+    list-style: none;
+    margin-bottom: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-left: 0;
+}
+
+.carrinho-conteudo li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.carrinho-conteudo .fechar {
+    background: #ccc;
+    margin-left: 10px;
+}
+
+.carrinho-conteudo button {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.carrinho-conteudo button:hover {
+    background: #128C7E;
+}
+
 body {
     background-color: #fff5f7;
     color: #333;
